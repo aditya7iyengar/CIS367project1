@@ -258,6 +258,13 @@ void win_refresh (GLFWwindow *win) {
 /* action: GLFW_PRESS, GLFW_RELEASE, or GLFW_REPEAT */
 void key_handler (GLFWwindow *win, int key, int scan_code, int action, int mods)
 {
+    const float FIRST_VIEW = 0.5f;
+    const float SECOND_VIEW = 1.5f;
+    glm::vec3 N;
+    float theta;
+    glm::quat q;
+    static glm::mat4 current_cam;
+    glm::vec3 this_vec;
     cout << __FUNCTION__ << endl;
     if (action != GLFW_PRESS) return;
     if (mods == GLFW_MOD_SHIFT) {
@@ -281,15 +288,41 @@ void key_handler (GLFWwindow *win, int key, int scan_code, int action, int mods)
             case GLFW_KEY_ESCAPE:
                 glfwSetWindowShouldClose(win, true);
                 break;
-            case GLFW_KEY_0:
             case GLFW_KEY_1:
+                this_vec = glm::normalize(glm::vec3{-1, 1, 1});
+                N = glm::cross(glm::vec3{-0.5, 0, 0}, this_vec);
+                theta = glm::angle(glm::vec3{0, 0, 0}, this_vec);
+                camera_cf = current_cam * glm::toMat4(glm::normalize(glm::quat{cos(theta / 2), sin(theta / 2) * N}));
+                //camera_cf =  hex1_cf;
+                win_refresh(win);
+                break;
             case GLFW_KEY_2:
+                this_vec = glm::normalize(glm::vec3{-1, 1, 1});
+                N = glm::cross(glm::vec3{-0.5, 0, 0}, this_vec);
+                theta = glm::angle(glm::vec3{0, 0, 0}, this_vec);
+                camera_cf = current_cam * glm::toMat4(glm::normalize(glm::quat{cos(theta / 2), sin(theta / 2) * N}));
+                //camera_cf =  hex1_cf;
+                win_refresh(win);
+                break;
             case GLFW_KEY_3:
+                this_vec = glm::normalize(glm::vec3{-1, 1, 1});
+                N = glm::cross(glm::vec3{-0.5, 0, 0}, this_vec);
+                theta = glm::angle(glm::vec3{0, 0, 0}, this_vec);
+                camera_cf = current_cam * glm::toMat4(glm::normalize(glm::quat{cos(theta / 2), sin(theta / 2) * N}));
+                //camera_cf =  hex1_cf;
+                win_refresh(win);
+                break;
             case GLFW_KEY_4:
+                this_vec = glm::normalize(glm::vec3{-1, 1, 1});
+                N = glm::cross(glm::vec3{-0.5, 0, 0}, this_vec);
+                theta = glm::angle(glm::vec3{0, 0, 0}, this_vec);
+                camera_cf = current_cam * glm::toMat4(glm::normalize(glm::quat{cos(theta / 2), sin(theta / 2) * N}));
+                //camera_cf =  hex1_cf;
+                win_refresh(win);
+                break;
             case GLFW_KEY_5:
             case GLFW_KEY_6:
                 /* rebuild the model at different level of detail */
-
                 break;
         }
     }
