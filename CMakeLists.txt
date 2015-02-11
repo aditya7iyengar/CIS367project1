@@ -24,7 +24,7 @@ if (APPLE)
   find_library(COREVID_LIBRARY CoreVideo REQUIRED)
 endif (APPLE)
 
-set(SOURCE_FILES main.cpp GenericObject1.cpp Polygon.cpp GenericObject2.cpp Cone.cpp)
+set(SOURCE_FILES main.cpp GenericObject1.cpp Polygon.cpp GenericObject2.cpp Lamborghini_struct.cpp)
 add_executable(sample ${SOURCE_FILES})
   target_link_libraries (sample ${GLFW3_LIBRARY} ${OPENGL_LIBRARIES} ${COCOA_LIBRARY}
      ${COREVID_LIBRARY} ${IOKIT_LIBRARY} ${GLEW_LIBRARY})

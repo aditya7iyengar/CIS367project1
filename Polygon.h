@@ -14,7 +14,7 @@ private:
 public:
     float length, breadth, height, length2, breadth2;
     ~Polygon();
-    void build(float l, float b, float h, float l2, float b2, float clr1, float clr2, float clr3);
+    void build(float l, float b, float h, float l2, float b2, float clr1, float clr2, float clr3, float shiny_quotient);
     void render() const;
 };
 #endif

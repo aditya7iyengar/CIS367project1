@@ -9,7 +9,7 @@ GenericObject2::~GenericObject2() {
 
 void GenericObject2::build(float pouter_top_radius, float pinner_top_radius,
         float pouter_bottom_radius, float pinner_bottom_radius,
-        float pheight, int pnum_sides, float clr1, float clr2, float clr3) {
+        float pheight, int pnum_sides, float clr1, float clr2, float clr3, float shiny_quotient) {
     outer_top_radius = pouter_top_radius;
     inner_top_radius = pinner_top_radius;
     outer_bottom_radius = pouter_bottom_radius;
@@ -32,6 +32,9 @@ void GenericObject2::build(float pouter_top_radius, float pinner_top_radius,
         color.push_back (clr1);
         color.push_back (clr2);
         color.push_back (clr3);
+        clr1 -= shiny_quotient*0.01;
+        clr2 -= shiny_quotient*0.01;
+        clr3 -= shiny_quotient*0.01;
         angle += theta;
     }
 
@@ -43,6 +46,9 @@ void GenericObject2::build(float pouter_top_radius, float pinner_top_radius,
         color.push_back (clr1);
         color.push_back (clr2);
         color.push_back (clr3);
+        clr1 -= shiny_quotient*0.01;
+        clr2 -= shiny_quotient*0.01;
+        clr3 -= shiny_quotient*0.01;
         angle  += theta;
     }
 
@@ -54,6 +60,9 @@ void GenericObject2::build(float pouter_top_radius, float pinner_top_radius,
         color.push_back (clr1);
         color.push_back (clr2);
         color.push_back (clr3);
+        clr1 -= shiny_quotient*0.01;
+        clr2 -= shiny_quotient*0.01;
+        clr3 -= shiny_quotient*0.01;
         angle += theta;
     }
 
@@ -65,12 +74,18 @@ void GenericObject2::build(float pouter_top_radius, float pinner_top_radius,
         color.push_back (clr1);
         color.push_back (clr2);
         color.push_back (clr3);
+        clr1 -= shiny_quotient*0.01;
+        clr2 -= shiny_quotient*0.01;
+        clr3 -= shiny_quotient*0.01;
         angle += theta;
     }
 
     vertices.push_back(0);
     vertices.push_back(0);
     vertices.push_back(height/2);
+    clr1 -= shiny_quotient*0.01;
+    clr2 -= shiny_quotient*0.01;
+    clr3 -= shiny_quotient*0.01;
     color.push_back (clr1);
     color.push_back (clr2);
     color.push_back (clr3);
@@ -78,6 +93,9 @@ void GenericObject2::build(float pouter_top_radius, float pinner_top_radius,
     vertices.push_back(0);
     vertices.push_back(0);
     vertices.push_back(-height/2);
+    clr1 -= shiny_quotient*0.01;
+    clr2 -= shiny_quotient*0.01;
+    clr3 -= shiny_quotient*0.01;
     color.push_back (clr1);
     color.push_back (clr2);
     color.push_back (clr3);
@@ -103,12 +121,12 @@ void GenericObject2::build(float pouter_top_radius, float pinner_top_radius,
     indices.push_back(0);
     indices.push_back(2*num_sides);
 
-    for (int k = 0; k < num_sides; k++){
+    for (int k = num_sides - 1; k > -1; k--){
         indices.push_back (k + num_sides);
         indices. push_back (k + 3*num_sides);
     }
-    indices.push_back(num_sides);
-    indices.push_back(3*num_sides);
+    indices.push_back(num_sides-1);
+    indices.push_back(4*num_sides - 1);
 
     glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer);
     glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(float), vertices.data(), GL_STATIC_DRAW);

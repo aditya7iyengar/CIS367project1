@@ -17,7 +17,7 @@ public:
     int num_sides;
     float outer_top_radius, inner_top_radius, outer_bottom_radius, inner_bottom_radius, height;
     void build (float outer_top_radius, float inner_top_radius, float outer_bottom_radius,float inner_bottom_radius,
-            float height, int num_sides, float clr1, float clr2, float clr3);
+            float height, int num_sides, float clr1, float clr2, float clr3, float shiny_quotient);
     void render() const;
     ~GenericObject2();
 };

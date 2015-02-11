@@ -7,7 +7,9 @@ Polygon::~Polygon() {
     glDeleteBuffers(1, &color_buffer);
 }
 
-void Polygon::build(float l, float b, float h, float l2, float b2, float clr1, float clr2, float clr3) {
+void Polygon::build(float l, float b, float h,
+        float l2, float b2,
+        float clr1, float clr2, float clr3, float shiny_quotient) {
     length = l;
     breadth = b;
     height = h;
@@ -28,6 +30,10 @@ void Polygon::build(float l, float b, float h, float l2, float b2, float clr1, f
     color.push_back (clr2);
     color.push_back (clr3);
 
+    clr1 -= (shiny_quotient*0.03);
+    clr2 -= (shiny_quotient*0.02);
+    clr3 -= (shiny_quotient*0.03);
+
     vertices.push_back(-length/2);
     vertices.push_back(breadth/2);
     vertices.push_back(height/2);
@@ -36,6 +42,10 @@ void Polygon::build(float l, float b, float h, float l2, float b2, float clr1, f
     color.push_back (clr2);
     color.push_back (clr3);
 
+    clr1 -= (shiny_quotient*0.03);
+    clr2 -= (shiny_quotient*0.02);
+    clr3 -= (shiny_quotient*0.03);
+
     vertices.push_back(-length/2);
     vertices.push_back(-breadth/2);
     vertices.push_back(height/2);
@@ -44,6 +54,10 @@ void Polygon::build(float l, float b, float h, float l2, float b2, float clr1, f
     color.push_back (clr2);
     color.push_back (clr3);
 
+    clr1 -= (shiny_quotient*0.03);
+    clr2 -= (shiny_quotient*0.02);
+    clr3 -= (shiny_quotient*0.03);
+
     vertices.push_back(length/2);
     vertices.push_back(-breadth/2);
     vertices.push_back(height/2);
@@ -51,6 +65,10 @@ void Polygon::build(float l, float b, float h, float l2, float b2, float clr1, f
     color.push_back (clr1);
     color.push_back (clr2);
     color.push_back (clr3);
+
+    clr1 -= (shiny_quotient*0.03);
+    clr2 -= (shiny_quotient*0.02);
+    clr3 -= (shiny_quotient*0.03);
 
     /* Bottom vertices the polygon */
 
@@ -62,6 +80,10 @@ void Polygon::build(float l, float b, float h, float l2, float b2, float clr1, f
     color.push_back (clr2);
     color.push_back (clr3);
 
+    clr1 -= (shiny_quotient*0.03);
+    clr2 -= (shiny_quotient*0.02);
+    clr3 -= (shiny_quotient*0.03);
+
     vertices.push_back(-length2/2);
     vertices.push_back(breadth2/2);
     vertices.push_back(-height/2);
@@ -70,6 +92,10 @@ void Polygon::build(float l, float b, float h, float l2, float b2, float clr1, f
     color.push_back (clr2);
     color.push_back (clr3);
 
+    clr1 -= (shiny_quotient*0.03);
+    clr2 -= (shiny_quotient*0.02);
+    clr3 -= (shiny_quotient*0.03);
+
     vertices.push_back(-length2/2);
     vertices.push_back(-breadth2/2);
     vertices.push_back(-height/2);
@@ -77,6 +103,10 @@ void Polygon::build(float l, float b, float h, float l2, float b2, float clr1, f
     color.push_back (clr1);
     color.push_back (clr2);
     color.push_back (clr3);
+
+    clr1 += (shiny_quotient*0.03);
+    clr2 += (shiny_quotient*0.02);
+    clr3 += (shiny_quotient*0.03);
 
     vertices.push_back(length2/2);
     vertices.push_back(-breadth2/2);
@@ -86,6 +116,9 @@ void Polygon::build(float l, float b, float h, float l2, float b2, float clr1, f
     color.push_back (clr2);
     color.push_back (clr3);
 
+    clr1 += (shiny_quotient*0.03);
+    clr2 += (shiny_quotient*0.02);
+    clr3 += (shiny_quotient*0.03);
 
 
     /* Center of the top face */
@@ -98,6 +131,9 @@ void Polygon::build(float l, float b, float h, float l2, float b2, float clr1, f
     color.push_back (clr2);
     color.push_back (clr3);
 
+    clr1 += (shiny_quotient*0.03);
+    clr2 += (shiny_quotient*0.02);
+    clr3 += (shiny_quotient*0.03);
 
 
     /* Center of the bottom face */
