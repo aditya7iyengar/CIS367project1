@@ -38,6 +38,8 @@ Polygon head_lights;
 Polygon rear_lights;
 Polygon spoiler;
 GenericObject1 wheel;
+GenericObject1 barrel;
+GenericObject1 barrelRings;
 GenericObject2 sub_fl_wall;
 void init_model();
 void win_refresh(GLFWwindow*);
@@ -76,7 +78,7 @@ void win_resize (GLFWwindow * win, int width, int height)
 
 void win_refresh (GLFWwindow *win) {
 //    cout << __PRETTY_FUNCTION__ << endl;
-    glClearColor(0, 0, 0, 1);
+    glClearColor(0, 0.7, 1, 0);
     glClear(GL_COLOR_BUFFER_BIT| GL_DEPTH_BUFFER_BIT);
 
     glMatrixMode (GL_MODELVIEW);
@@ -123,6 +125,39 @@ void win_refresh (GLFWwindow *win) {
     crate_medium.render();
     glPopMatrix();
 
+    glPushMatrix();
+    glTranslatef(-3, 5, 0.4);
+    crate_medium.render();
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(-3.9, 5, 0.4);
+    crate_medium.render();
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(-3, 5, 1.2);
+    glRotatef(-5, 0, 0, 1);
+    crate_medium.render();
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(-3.9, 5, 1.2);
+    glRotatef(-5, 0, 0, 1);
+    crate_medium.render();
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(7.5, 0, 0.4);
+    crate_medium.render();
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(7.5, 0, 1.2);
+    glRotatef(5, 0, 0, 1);
+    crate_medium.render();
+    glPopMatrix();
+
     glPopMatrix();
 
     /* Sub floor components */
@@ -158,8 +193,6 @@ void win_refresh (GLFWwindow *win) {
     crate_small.render();
     glPopMatrix();
     glPopMatrix();
-
-
 
     glPopMatrix();
 
@@ -243,6 +276,58 @@ void win_refresh (GLFWwindow *win) {
 
     /* That was the car*/
 
+    glPushMatrix();
+    glTranslatef(-3.7,-1 , 0.28);
+    barrel.render();
+
+    glPushMatrix();
+    glTranslatef(0,0 , 0.3);
+    barrelRings.render();
+
+    glTranslatef(0,0 , -0.5);
+    barrelRings.render();
+    glPopMatrix();
+    glPopMatrix();
+
+
+    glPushMatrix();
+    glTranslatef(-4.8,-0.7 , 0.28);
+    barrel.render();
+
+    glPushMatrix();
+    glTranslatef(0,0 , 0.3);
+    barrelRings.render();
+
+    glTranslatef(0,0 , -0.5);
+    barrelRings.render();
+    glPopMatrix();
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(-6.1,-1 , 0.28);
+    barrel.render();
+
+    glPushMatrix();
+    glTranslatef(0,0 , 0.3);
+    barrelRings.render();
+
+    glTranslatef(0,0 , -0.5);
+    barrelRings.render();
+    glPopMatrix();
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(1.1,5.2 , 0.1);
+    barrel.render();
+
+    glPushMatrix();
+    glTranslatef(0,0 , 0.3);
+    barrelRings.render();
+
+    glTranslatef(0,0 , -0.5);
+    barrelRings.render();
+    glPopMatrix();
+    glPopMatrix();
 
 
     //color_test.render();
@@ -403,7 +488,7 @@ void make_model() {
     floor_poly.build(16,12 , 0.001, 16, 12, 1.00, 0.7, 0.5);
     crate_big.build(1, 1, 1, 1, 1, 0.9, 0, 0);
     crate_medium.build(0.8, 0.8, 0.8, 0.8, 0.8, 0.00, 0.00, 1.00);
-    crate_small.build(0.4, 0.1 , 0.3, 0.4 , 0.1, 0.00, 0.9, 0.00);
+    crate_small.build(0.4, 0.1 , 0.2, 0.4 , 0.1, 0.00, 0.9, 0.00);
     sub_floor.build(6, 6, 0.3, 6, 6, 0.5, 0.3, 0.3);
     sub_fl_wall.build(4.32, 4.2, 4.32, 4.2, 0.8, 4, 0.75,0.5,0.4);
     base.build(1.5, 1, 0.3, 2, 1, 0.1, 0.1, 0.4);
@@ -414,6 +499,8 @@ void make_model() {
     head_lights.build(0.0001, 0.2, 0.15, 0.001, 0.15, 0.7, 0.7, 0.9);
     //test_obj2.build(2, 1, 1, 0.5, 1, 4);
     //color_test.build(10);
+    barrel.build(0.3 , 0.3, 1.00, 20, 0.4, 0.4, 0.4);
+    barrelRings.build(0.31 , 0.31, 0.05, 20, 0.4, 0.4, 0.4);
 }
 
 int main() {
