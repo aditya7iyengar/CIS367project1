@@ -37,6 +37,7 @@ Polygon crate_small;
 Polygon crate_big;
 Polygon crate_medium;
 Polygon head_lights;
+<<<<<<< HEAD
 Polygon streamer;
 GenericObject2 wheel, lambo_wheel;
 GenericObject1 barrel;
@@ -44,6 +45,15 @@ GenericObject1 barrelRings;
 GenericObject2 sub_fl_wall, wheel_rim, boundary;
 Lamborghini_struct lambo_s;
 bool lambo = false;
+=======
+Polygon rear_lights;
+Polygon spoiler;
+GenericObject1 wheel;
+GenericObject1 barrel;
+GenericObject1 barrelRings;
+GenericObject2 sub_fl_wall;
+void init_model();
+>>>>>>> FETCH_HEAD
 void win_refresh(GLFWwindow*);
 float arc_ball_rad_square;
 int screen_ctr_x, screen_ctr_y;
@@ -335,6 +345,7 @@ void win_refresh (GLFWwindow *win) {
     glPopMatrix();
     glPopMatrix();
 
+<<<<<<< HEAD
     glPushMatrix();
     glTranslatef(1.25, -2.9, 0.45);
     crate_small.render();
@@ -387,6 +398,8 @@ void win_refresh (GLFWwindow *win) {
     glPopMatrix();
     glPopMatrix();
 
+=======
+>>>>>>> FETCH_HEAD
     glPopMatrix();
 
     /* the Car */
@@ -472,6 +485,58 @@ void win_refresh (GLFWwindow *win) {
     glPushMatrix();
     glTranslatef(-3.7,-1 , 0.28);
     barrel.render();
+<<<<<<< HEAD
+=======
+
+    glPushMatrix();
+    glTranslatef(0,0 , 0.3);
+    barrelRings.render();
+
+    glTranslatef(0,0 , -0.5);
+    barrelRings.render();
+    glPopMatrix();
+    glPopMatrix();
+
+
+    glPushMatrix();
+    glTranslatef(-4.8,-0.7 , 0.28);
+    barrel.render();
+
+    glPushMatrix();
+    glTranslatef(0,0 , 0.3);
+    barrelRings.render();
+
+    glTranslatef(0,0 , -0.5);
+    barrelRings.render();
+    glPopMatrix();
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(-6.1,-1 , 0.28);
+    barrel.render();
+
+    glPushMatrix();
+    glTranslatef(0,0 , 0.3);
+    barrelRings.render();
+
+    glTranslatef(0,0 , -0.5);
+    barrelRings.render();
+    glPopMatrix();
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(1.1,5.2 , 0.1);
+    barrel.render();
+
+    glPushMatrix();
+    glTranslatef(0,0 , 0.3);
+    barrelRings.render();
+
+    glTranslatef(0,0 , -0.5);
+    barrelRings.render();
+    glPopMatrix();
+    glPopMatrix();
+>>>>>>> FETCH_HEAD
 
     glPushMatrix();
     glTranslatef(0,0 , 0.3);
@@ -685,18 +750,28 @@ void key_handler (GLFWwindow *win, int key, int scan_code, int action, int mods)
                 N = glm::cross(glm::vec3{-0.5, 0, 0}, this_vec);
                 theta = glm::angle(glm::vec3{0, 0, 0}, this_vec);
                 camera_cf = current_cam * glm::toMat4(glm::normalize(glm::quat{cos(theta / 2), sin(theta / 2) * N}));
+<<<<<<< HEAD
 
                 win_refresh(win);
                 break;
             case GLFW_KEY_2:
                 this_vec = glm::normalize(glm::vec3{1, 1, 1});
                 N = glm::cross(glm::vec3{0.5, 0, 0}, this_vec);
+=======
+                //camera_cf =  hex1_cf;
+                win_refresh(win);
+                break;
+            case GLFW_KEY_2:
+                this_vec = glm::normalize(glm::vec3{-1, 1, 1});
+                N = glm::cross(glm::vec3{-0.5, 0, 0}, this_vec);
+>>>>>>> FETCH_HEAD
                 theta = glm::angle(glm::vec3{0, 0, 0}, this_vec);
                 camera_cf = current_cam * glm::toMat4(glm::normalize(glm::quat{cos(theta / 2), sin(theta / 2) * N}));
                 //camera_cf =  hex1_cf;
                 win_refresh(win);
                 break;
             case GLFW_KEY_3:
+<<<<<<< HEAD
                 this_vec = glm::normalize(glm::vec3{1, 1, 1});
                 N = glm::cross(glm::vec3{0, 0, 0.5}, this_vec);
                 theta = glm::angle(glm::vec3{0, 0, 0}, this_vec);
@@ -710,6 +785,21 @@ void key_handler (GLFWwindow *win, int key, int scan_code, int action, int mods)
                 theta = glm::angle(glm::vec3{0, 0, 0}, this_vec);
                 camera_cf = current_cam * glm::toMat4(glm::normalize(glm::quat{cos(theta / 2), sin(theta / 2) * N}));
 
+=======
+                this_vec = glm::normalize(glm::vec3{-1, 1, 1});
+                N = glm::cross(glm::vec3{-0.5, 0, 0}, this_vec);
+                theta = glm::angle(glm::vec3{0, 0, 0}, this_vec);
+                camera_cf = current_cam * glm::toMat4(glm::normalize(glm::quat{cos(theta / 2), sin(theta / 2) * N}));
+                //camera_cf =  hex1_cf;
+                win_refresh(win);
+                break;
+            case GLFW_KEY_4:
+                this_vec = glm::normalize(glm::vec3{-1, 1, 1});
+                N = glm::cross(glm::vec3{-0.5, 0, 0}, this_vec);
+                theta = glm::angle(glm::vec3{0, 0, 0}, this_vec);
+                camera_cf = current_cam * glm::toMat4(glm::normalize(glm::quat{cos(theta / 2), sin(theta / 2) * N}));
+                //camera_cf =  hex1_cf;
+>>>>>>> FETCH_HEAD
                 win_refresh(win);
                 break;
             case GLFW_KEY_5:
@@ -791,6 +881,7 @@ void init_gl() {
 }
 
 void make_model() {
+<<<<<<< HEAD
     car_cf = glm::rotate(-45.0f, glm::vec3{0,0,1});
     lambo_cf = glm::translate(glm::vec3{-205,-198,-0.33});
     lambo_s.build(2.4, 1.0, 1.1, 1.3, 0.6, 0.2, 0.37, 0.35, 0.55, 0.9, 0.9, 0.0);
@@ -812,6 +903,25 @@ void make_model() {
     head_lights.build(0.0001, 0.2, 0.15, 0.001, 0.15, 0.9, 0.9, 0.0, 2);
     barrel.build(0.3 , 0.3, 1.00, 20, 0.4, 0.4, 0.2);
     barrelRings.build(0.31 , 0.31, 0.05, 20, 0.0, 0.0, 0.0);
+=======
+    //test_obj.build(0.5, 0.5, 0.71, 4, 0.7, 0, 0.4);
+    floor_poly.build(16,12 , 0.001, 16, 12, 1.00, 0.7, 0.5);
+    crate_big.build(1, 1, 1, 1, 1, 0.9, 0, 0);
+    crate_medium.build(0.8, 0.8, 0.8, 0.8, 0.8, 0.00, 0.00, 1.00);
+    crate_small.build(0.4, 0.1 , 0.2, 0.4 , 0.1, 0.00, 0.9, 0.00);
+    sub_floor.build(6, 6, 0.3, 6, 6, 0.5, 0.3, 0.3);
+    sub_fl_wall.build(4.32, 4.2, 4.32, 4.2, 0.8, 4, 0.75,0.5,0.4);
+    base.build(1.5, 1, 0.3, 2, 1, 0.1, 0.1, 0.4);
+    upper.build(0.8, 0.8, 0.3, 1.0, 1, 0.7, 0.0, 0.0);
+    wind_shield.build(0.0001, 0.75, 0.28, 0.0001, 0.92, 0.00, 0.00, 0.00);
+    wheel.build(0.2 , 0.2, 0.04, 20, 0.4, 0.4, 0.4);
+    window.build(0.6,0.0001,0.28,0.8,0.001,0.0,0.00,0.00);
+    head_lights.build(0.0001, 0.2, 0.15, 0.001, 0.15, 0.7, 0.7, 0.9);
+    //test_obj2.build(2, 1, 1, 0.5, 1, 4);
+    //color_test.build(10);
+    barrel.build(0.3 , 0.3, 1.00, 20, 0.4, 0.4, 0.4);
+    barrelRings.build(0.31 , 0.31, 0.05, 20, 0.4, 0.4, 0.4);
+>>>>>>> FETCH_HEAD
 }
 
 int main() {
